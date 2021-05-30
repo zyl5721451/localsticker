@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1004845865455",
+    "firebase_url": "https://henryford-9315c.firebaseio.com",
+    "project_id": "henryford-9315c",
+    "storage_bucket": "henryford-9315c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004845865455:android:1e4bdc524f6dcf086dfe1a",
+        "android_client_info": {
+          "package_name": "com.henryford.sticker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004845865455-nso6ct0s6lgnhh6o8udfh3iu94o71bi2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.henryford.sticker",
+            "certificate_hash": "e11682853781242f6f74371b8e849248c322881a"
+          }
+        },
+        {
+          "client_id": "1004845865455-a79daf61rouj8fvdv3k2bdktu6043u6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf55wqZb9QXeD2r1slA7FiE0apLpSgIhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004845865455-a79daf61rouj8fvdv3k2bdktu6043u6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1115472477447824~5061632134"
+    }
+  ],
+  "configuration_version": "1"
+}
