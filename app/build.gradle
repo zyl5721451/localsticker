@@ -29,13 +29,43 @@ android {
                 "\"${contentProviderAuthority}\"")
     }
 
+
+    signingConfigs {
+        debug {
+            storeFile file('keystore.jks')
+            storePassword 'henrysticker'
+            keyAlias 'HenryFord'
+            keyPassword 'henrysticker'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            storeFile file('keystore.jks')
+            storePassword 'henrysticker'
+            keyAlias 'HenryFord'
+            keyPassword 'henrysticker'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+            signingConfig signingConfigs.debug
+            debuggable true
             minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
