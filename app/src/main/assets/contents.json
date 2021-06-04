@@ -2,90 +2,6 @@
   "android_play_store_link": "https://play.google.com/store/apps/details?id=com.theabsolutecompany.stickercentral",
   "sticker_packs": [
     {
-      "identifier": "1",
-      "name": "Ariana Grande",
-      "publisher": "Sticker Central",
-      "tray_image_file": "ar24.webp",
-      "publisher_email":"thecompanyabsolute@gmail.com",
-      "publisher_website": "https://twitter.com/CompanyAbsolute",
-      "privacy_policy_website": "",
-      "license_agreement_website": "",
-      "stickers": [
-        {
-          "image_file": "ar1.webp"
-        },
-        {
-          "image_file": "ar2.webp"
-        },
-        {
-          "image_file": "ar3.webp"
-        },
-        {
-          "image_file": "ar4.webp"
-        },
-        {
-          "image_file": "ar5.webp"
-        },
-        {
-          "image_file": "ar6.webp"
-        },
-        {
-          "image_file": "ar7.webp"
-        },
-        {
-          "image_file": "ar8.webp"
-        },
-        {
-          "image_file": "ar9.webp"
-        },
-        {
-          "image_file": "ar10.webp"
-        },
-        {
-          "image_file": "ar11.webp"
-        },
-        {
-          "image_file": "ar12.webp"
-        },
-        {
-          "image_file": "ar13.webp"
-        },
-        {
-          "image_file": "ar14.webp"
-        },
-        {
-          "image_file": "ar15.webp"
-        },
-        {
-          "image_file": "ar16.webp"
-        },
-        {
-          "image_file": "ar17.webp"
-        },
-        {
-          "image_file": "ar18.webp"
-        },
-        {
-          "image_file": "ar19.webp"
-        },
-        {
-          "image_file": "ar20.webp"
-        },
-        {
-          "image_file": "ar21.webp"
-        },
-        {
-          "image_file": "ar22.webp"
-        },
-        {
-          "image_file": "ar23.webp"
-        },
-        {
-          "image_file": "ar24.webp"
-        }
-      ]
-    },
-    {
       "identifier": "Cryptocurrecy",
       "name": "Currecy",
       "publisher": "Jane Doe",
@@ -144,6 +60,154 @@
         {
           "image_file": "12_Zcash.webp",
           "emojis": ["😡","😠"]
+        }
+      ]
+    },
+    {
+      "identifier": "Trump",
+      "name": "Trump",
+      "publisher": "Doee",
+      "tray_image_file": "tray_Donald.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "01_Donald.webp",
+          "emojis": ["☕","🙂"]
+        },
+        {
+          "image_file": "02_Donald.webp",
+          "emojis": ["😄","😀"]
+        },
+        {
+          "image_file": "03_Donald.webp",
+          "emojis": ["😆","😂"]
+        },
+        {
+          "image_file": "04_Donald.webp",
+          "emojis": ["😩","😰"]
+        },
+        {
+          "image_file": "05_Donald.webp",
+          "emojis": ["😭","💧"]
+        },
+        {
+          "image_file": "06_Donald.webp",
+          "emojis": ["😍","♥"]
+        },
+        {
+          "image_file": "07_Donald.webp",
+          "emojis": ["💔","👎"]
+        },
+        {
+          "image_file": "08_Donald.webp",
+          "emojis": ["😍","💑"]
+        },
+        {
+          "image_file": "09_Donald.webp",
+          "emojis": ["😘","🍪"]
+        },
+        {
+          "image_file": "10_Donald.webp",
+          "emojis": ["🤔","😐"]
+        },
+        {
+          "image_file": "11_Donald.webp",
+          "emojis": ["😱","😵"]
+        }
+      ]
+    },
+    {
+      "identifier": "Cat",
+      "name": "Cat",
+      "publisher": "Doe",
+      "tray_image_file": "tray_Cat.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "01_Cat.webp",
+          "emojis": ["☕","🙂"]
+        },
+        {
+          "image_file": "02_Cat.webp",
+          "emojis": ["😄","😀"]
+        },
+        {
+          "image_file": "03_Cat.webp",
+          "emojis": ["😆","😂"]
+        },
+        {
+          "image_file": "04_Cat.webp",
+          "emojis": ["😩","😰"]
+        },
+        {
+          "image_file": "05_Cat.webp",
+          "emojis": ["😭","💧"]
+        },
+        {
+          "image_file": "06_Cat.webp",
+          "emojis": ["😍","♥"]
+        },
+        {
+          "image_file": "07_Cat.webp",
+          "emojis": ["💔","👎"]
+        },
+        {
+          "image_file": "08_Cat.webp",
+          "emojis": ["😍","💑"]
+        },
+        {
+          "image_file": "09_Cat.webp",
+          "emojis": ["😘","🍪"]
+        },
+        {
+          "image_file": "10_Cat.webp",
+          "emojis": ["🤔","😐"]
+        },
+        {
+          "image_file": "11_Cat.webp",
+          "emojis": ["😱","😵"]
+        },
+        {
+          "image_file": "12_Cat.webp",
+          "emojis": ["😡","😠"]
+        },
+        {
+          "image_file": "13_Cat.webp",
+          "emojis": ["❓","🤔"]
+        },
+        {
+          "image_file": "14_Cat.webp",
+          "emojis": ["🌈","😜"]
+        },
+        {
+          "image_file": "15_Cat.webp",
+          "emojis": ["💻","😩"]
+        },
+        {
+          "image_file": "16_Cat.webp",
+          "emojis": ["😡","😤"]
+        },
+        {
+          "image_file": "17_Cat.webp",
+          "emojis": ["😩","😨"]
+        },
+        {
+          "image_file": "18_Cat.webp",
+          "emojis": ["💻","🌃"]
+        },
+        {
+          "image_file": "19_Cat.webp",
+          "emojis": ["🎉","✨"]
         }
       ]
     }
