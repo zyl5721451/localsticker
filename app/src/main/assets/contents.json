@@ -210,6 +210,228 @@
           "emojis": ["🎉","✨"]
         }
       ]
+    },
+    {
+      "identifier": "Art",
+      "name": "Art",
+      "publisher": "LC",
+      "tray_image_file": "tray_art.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "01_Art.webp",
+          "emojis": ["☕","🙂"]
+        },
+        {
+          "image_file": "02_Art.webp",
+          "emojis": ["😄","😀"]
+        },
+        {
+          "image_file": "03_Art.webp",
+          "emojis": ["😆","😂"]
+        },
+        {
+          "image_file": "04_Art.webp",
+          "emojis": ["😩","😰"]
+        },
+        {
+          "image_file": "05_Art.webp",
+          "emojis": ["😭","💧"]
+        },
+        {
+          "image_file": "06_Art.webp",
+          "emojis": ["😍","♥"]
+        },
+        {
+          "image_file": "07_Art.webp",
+          "emojis": ["💔","👎"]
+        },
+        {
+          "image_file": "08_Art.webp",
+          "emojis": ["😍","💑"]
+        },
+        {
+          "image_file": "09_Art.webp",
+          "emojis": ["😘","🍪"]
+        },
+        {
+          "image_file": "10_Art.webp",
+          "emojis": ["🤔","😐"]
+        },
+        {
+          "image_file": "11_Art.webp",
+          "emojis": ["😱","😵"]
+        },
+        {
+          "image_file": "12_Art.webp",
+          "emojis": ["😡","😠"]
+        },
+        {
+          "image_file": "13_Art.webp",
+          "emojis": ["❓","🤔"]
+        },
+        {
+          "image_file": "14_Art.webp",
+          "emojis": ["🌈","😜"]
+        },
+        {
+          "image_file": "15_Art.webp",
+          "emojis": ["💻","😩"]
+        }
+      ]
+    },
+    {
+      "identifier": "Bean",
+      "name": "Bean",
+      "publisher": "ALC",
+      "tray_image_file": "tray_Bean.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "01_Bean.webp",
+          "emojis": ["☕","🙂"]
+        },
+        {
+          "image_file": "02_Bean.webp",
+          "emojis": ["😄","😀"]
+        },
+        {
+          "image_file": "03_Bean.webp",
+          "emojis": ["😆","😂"]
+        },
+        {
+          "image_file": "04_Bean.webp",
+          "emojis": ["😩","😰"]
+        },
+        {
+          "image_file": "05_Bean.webp",
+          "emojis": ["😭","💧"]
+        },
+        {
+          "image_file": "06_Bean.webp",
+          "emojis": ["😍","♥"]
+        },
+        {
+          "image_file": "07_Bean.webp",
+          "emojis": ["💔","👎"]
+        },
+        {
+          "image_file": "08_Bean.webp",
+          "emojis": ["😍","💑"]
+        },
+        {
+          "image_file": "09_Bean.webp",
+          "emojis": ["😘","🍪"]
+        },
+        {
+          "image_file": "10_Bean.webp",
+          "emojis": ["🤔","😐"]
+        },
+        {
+          "image_file": "11_Bean.webp",
+          "emojis": ["🤔","😵"]
+        },
+        {
+          "image_file": "12_Bean.webp",
+          "emojis": ["😱","😵"]
+        }
+      ]
+    },
+    {
+      "identifier": "Cute",
+      "name": "Cute",
+      "publisher": "Doge",
+      "tray_image_file": "tray_Cute.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "Cute_01.webp",
+          "emojis": ["☕","🙂"]
+        },
+        {
+          "image_file": "Cute_02.webp",
+          "emojis": ["😄","😀"]
+        },
+        {
+          "image_file": "Cute_03.webp",
+          "emojis": ["😆","😂"]
+        },
+        {
+          "image_file": "Cute_04.webp",
+          "emojis": ["😩","😰"]
+        },
+        {
+          "image_file": "Cute_05.webp",
+          "emojis": ["😭","💧"]
+        },
+        {
+          "image_file": "Cute_06.webp",
+          "emojis": ["😍","♥"]
+        },
+        {
+          "image_file": "Cute_07.webp",
+          "emojis": ["💔","👎"]
+        },
+        {
+          "image_file": "Cute_08.webp",
+          "emojis": ["😍","💑"]
+        },
+        {
+          "image_file": "Cute_09.webp",
+          "emojis": ["😘","🍪"]
+        },
+        {
+          "image_file": "Cute_10.webp",
+          "emojis": ["🤔","😐"]
+        },
+        {
+          "image_file": "Cute_11.webp",
+          "emojis": ["😱","😵"]
+        },
+        {
+          "image_file": "Cute_12.webp",
+          "emojis": ["😡","😠"]
+        },
+        {
+          "image_file": "Cute_13.webp",
+          "emojis": ["❓","🤔"]
+        },
+        {
+          "image_file": "Cute_14.webp",
+          "emojis": ["🌈","😜"]
+        },
+        {
+          "image_file": "Cute_15.webp",
+          "emojis": ["💻","😩"]
+        },
+        {
+          "image_file": "Cute_16.webp",
+          "emojis": ["😡","😤"]
+        },
+        {
+          "image_file": "Cute_17.webp",
+          "emojis": ["😩","😨"]
+        },
+        {
+          "image_file": "Cute_18.webp",
+          "emojis": ["💻","🌃"]
+        }
+      ]
     }
   ]
 }
