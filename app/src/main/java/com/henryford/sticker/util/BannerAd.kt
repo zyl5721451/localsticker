@@ -9,7 +9,11 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
 class BannerAd {
-    val BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111"
+    companion object{
+        const val HOME_BANNER_AD_ID = "ca-app-pub-1115472477447824/7336217319"
+        const val DETAIL_BANNER_AD_ID = "ca-app-pub-1115472477447824/7872222172"
+    }
+
     lateinit var adView: AdView
     lateinit var adSize: AdSize
     lateinit var context: Context
@@ -33,7 +37,7 @@ class BannerAd {
     }
 
 
-    fun loadBannerAd(){
+    fun loadBannerAd(adId:String){
         adView = AdView(context)
         this.container.addView(adView)
         this.container.viewTreeObserver.addOnGlobalLayoutListener {
@@ -41,7 +45,7 @@ class BannerAd {
                 initialLayoutComplete = true
 
 
-                adView.adUnitId = BANNER_AD_ID
+                adView.adUnitId = adId
                 adView.adSize = adSize
                 // Create an ad request. Check your logcat output for the hashed device ID to
                 // get test ads on a physical device, e.g.,
