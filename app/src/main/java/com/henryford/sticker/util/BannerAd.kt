@@ -5,9 +5,7 @@ import android.content.Context
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.ViewGroup
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.*
 import com.henryford.sticker.BuildConfig
 
 class BannerAd {
@@ -23,6 +21,7 @@ class BannerAd {
     lateinit var context: Context
     lateinit var container: ViewGroup
     var initialLayoutComplete = false
+
     constructor(container: ViewGroup) {
         val display = (container.context as Activity).windowManager.defaultDisplay
         val outMetrics = DisplayMetrics()
@@ -39,6 +38,7 @@ class BannerAd {
         context = container.context
         this.container = container
     }
+
 
 
     fun loadBannerAd(adId:String){
@@ -81,5 +81,7 @@ class BannerAd {
     fun destroy(){
         adView.destroy()
     }
+
+
 
 }
