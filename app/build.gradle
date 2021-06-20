@@ -59,6 +59,7 @@ android {
             // 移除无用的resource文件
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [adMobId                : "ca-app-pub-1115472477447824~5061632134"]
         }
         debug {
             signingConfig signingConfigs.debug
@@ -67,6 +68,7 @@ android {
             zipAlignEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [adMobId                : "ca-app-pub-3940256099942544~3347511713"]
         }
     }
     compileOptions {

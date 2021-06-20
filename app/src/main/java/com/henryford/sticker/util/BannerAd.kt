@@ -3,15 +3,19 @@ package com.henryford.sticker.util
 import android.app.Activity
 import android.content.Context
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.ViewGroup
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.henryford.sticker.BuildConfig
 
 class BannerAd {
+    val TAG = BannerAd::class.java.simpleName
     companion object{
         const val HOME_BANNER_AD_ID = "ca-app-pub-1115472477447824/7336217319"
         const val DETAIL_BANNER_AD_ID = "ca-app-pub-1115472477447824/7872222172"
+        const val DEBUG_BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111"
     }
 
     lateinit var adView: AdView
@@ -44,8 +48,14 @@ class BannerAd {
             if (!initialLayoutComplete) {
                 initialLayoutComplete = true
 
+                if(BuildConfig.DEBUG){
+                    LogUtil.d(TAG,"loadBannerAd:debug")
+                    adView.adUnitId = DEBUG_BANNER_AD_ID
+                }else {
+                    LogUtil.d(TAG,"loadBannerAd:release")
+                    adView.adUnitId = adId
+                }
 
-                adView.adUnitId = adId
                 adView.adSize = adSize
                 // Create an ad request. Check your logcat output for the hashed device ID to
                 // get test ads on a physical device, e.g.,
