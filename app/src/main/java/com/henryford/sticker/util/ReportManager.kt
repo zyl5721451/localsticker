@@ -10,7 +10,9 @@ object ReportManager {
 
 
 
-    fun logEvent(name:String,bundle: Bundle){
+    fun logClickEvent(id:String, name:String){
+        val bundle = Bundle()
+        bundle.putString("id", id)
         firebaseAnalytics.logEvent(name,bundle)
     }
 
