@@ -1,5 +1,6 @@
 package com.henryford.sticker
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -60,6 +61,7 @@ class TestAdActivity : BaseActivity(),View.OnClickListener {
                 RewardedInterstitialAdWrapper().loadRewardeInterstitialdAd(this)
             }
             R.id.btn_native_ad ->{
+                startActivity(Intent(this,TestNativeAdActivity::class.java))
             }
 
         }
