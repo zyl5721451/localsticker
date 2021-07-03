@@ -33,7 +33,16 @@ class TestNativeAdActivity : BaseActivity() {
 //            }
 //
 //        })
-        nativeAdWrapper!!.loadUnifiedNativeAd(this,fl_unified_ad)
+        nativeAdWrapper!!.loadUnifiedNativeAd(this,fl_unified_ad,NativeAdWrapper.NATIVEAD_VIEW_HOME_SPLASH,object :NativeAdWrapper.OnNativeAdLoadListener{
+            override fun onNativeAdLoaded(nativeAds: ArrayList<NativeAd>) {
+
+            }
+
+            override fun onLoadComplete() {
+
+            }
+
+        })
     }
 
     override fun onDestroy() {

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.nativead.MediaView
@@ -19,7 +20,11 @@ class NativeAdWrapper {
     val TAG = NativeAdWrapper::class.java.simpleName
     val DEBUG_NATIVE_ID = "ca-app-pub-3940256099942544/2247696110"
     var nativeAds = ArrayList<NativeAd>()
-    var currentNativeAd:NativeAd? = null
+    companion object{
+        var currentNativeAd:NativeAd? = null
+        const val NATIVEAD_VIEW_HOME_SPLASH = R.layout.ad_splash
+    }
+
     lateinit var adLoader:AdLoader
     fun loadNativedAd(context: Context,loadListener: OnNativeAdLoadListener){
         adLoader = AdLoader.Builder(context, DEBUG_NATIVE_ID)
@@ -67,8 +72,7 @@ class NativeAdWrapper {
 
     }
 
-    fun loadUnifiedNativeAd(activity: Activity, container: FrameLayout) {
-
+    fun loadUnifiedNativeAd(activity: Activity,container:ViewGroup,adlayoutId:Int,nativeLoadListener:OnNativeAdLoadListener) {
         val builder = AdLoader.Builder(activity, DEBUG_NATIVE_ID)
             .forNativeAd { nativeAd ->
                 // OnUnifiedNativeAdLoadedListener implementation.
@@ -87,10 +91,14 @@ class NativeAdWrapper {
                 currentNativeAd?.destroy()
                 currentNativeAd = nativeAd
                 val adView = activity.layoutInflater
-                    .inflate(R.layout.ad_splash, null) as NativeAdView
+                    .inflate(adlayoutId, null) as NativeAdView
+
+                populateCustomerView(adView, nativeLoadListener)
+
                 populateUnifiedNativeAdView(nativeAd, adView)
                 container.removeAllViews()
                 container.addView(adView)
+                nativeLoadListener.onLoadComplete()
             }.withAdListener(object : AdListener() {
                 override fun onAdImpression() {
                     super.onAdImpression()
@@ -98,6 +106,7 @@ class NativeAdWrapper {
 
                 override fun onAdClicked() {
                     super.onAdClicked()
+                    nativeLoadListener.onAdClicked()
                 }
 
                 override fun onAdFailedToLoad(p0: LoadAdError) {
@@ -127,6 +136,18 @@ class NativeAdWrapper {
         builder.withNativeAdOptions(adOptions).build().loadAd(AdRequest.Builder().build())
     }
 
+    private fun populateCustomerView(
+        adView: NativeAdView,
+        nativeLoadListener: OnNativeAdLoadListener
+    ) {
+        var customerView = adView.findViewById<FrameLayout>(R.id.fl_customer)
+        customerView?.run {
+            customerView.setOnClickListener {
+                nativeLoadListener.onCustomerViewClick()
+            }
+        }
+    }
+
 
     /**
      * @param nativeAd the object containing the ad's assets
@@ -146,6 +167,8 @@ class NativeAdWrapper {
         adView.storeView = adView.findViewById(R.id.ad_store)//应用市场名称
         adView.advertiserView = adView.findViewById(R.id.ad_advertiser)//广告提供者
 
+
+        var tvStart = adView.findViewById<TextView>(R.id.tv_star)
         // The headline and media content are guaranteed to be in every UnifiedNativeAd.
         (adView.headlineView as TextView).text = nativeAd.headline//标题名称，广告名称
         adView.mediaView.setMediaContent(nativeAd.mediaContent)
@@ -194,6 +217,7 @@ class NativeAdWrapper {
         } else {
             (adView.starRatingView as RatingBar).rating = nativeAd.starRating!!.toFloat()
             adView.starRatingView.visibility = View.VISIBLE
+            tvStart.setText(nativeAd.starRating!!.toFloat().toString())
         }
 
         if (nativeAd.advertiser == null) {
@@ -235,6 +259,17 @@ class NativeAdWrapper {
     }
 
     interface OnNativeAdLoadListener{
-        fun onNativeAdLoaded(nativeAds:ArrayList<NativeAd>)
+        fun onNativeAdLoaded(nativeAds:ArrayList<NativeAd>){
+
+        }
+        fun onLoadComplete(){
+
+        }
+        fun onAdClicked(){
+
+        }
+        fun onCustomerViewClick(){
+
+        }
     }
 }
