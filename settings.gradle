@@ -1,3 +1,4 @@
+include ':uilib'
 include ':nativetemplates'
 include ':app'
 rootProject.name = "LocalSticker"
