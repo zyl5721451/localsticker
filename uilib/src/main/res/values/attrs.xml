@@ -28,4 +28,14 @@
         </attr>
         <attr name="elevation"/>
     </declare-styleable>
+
+
+    <declare-styleable name="BottomNavigationItemView">
+        <attr name="bnviType" format="enum">
+            <enum name="sticker" value="0"/>
+            <enum name="make" value="1"/>
+            <enum name="mine" value="2"/>
+        </attr>
+        <attr name="bnviChecked" format="boolean"/>
+    </declare-styleable>
 </resources>

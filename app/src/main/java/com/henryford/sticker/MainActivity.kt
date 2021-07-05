@@ -5,8 +5,10 @@ import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.google.android.material.navigation.NavigationView
 import com.henryford.sticker.mine.MineFragment
 import com.henryford.ui.bottomnavigation.BottomNavigationBar
+import com.henryford.ui.bottomnavigation.BottomNavigationItemView
 
 
 class MainActivity : BaseActivity() {
@@ -15,26 +17,59 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val bottomNavigationBar: BottomNavigationBar = findViewById(R.id.nav_view)
+        var leftNavagation:NavigationView = findViewById(R.id.left_view)
+        leftNavagation.setItemTextColor(null)
+        leftNavagation.setItemIconTintList(null)
+        leftNavagation.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_share ->{
+
+                    true
+                }
+                R.id.nav_rate ->{
+
+                    true
+                }
+                R.id.nav_terms ->{
+
+                    true
+                }
+                R.id.nav_privacy ->{
+
+                    true
+                }
+                else ->{
+
+                    false
+                }
+            }
+
+
+        }
 
 
         val fragmentManager: FragmentManager = supportFragmentManager
-        bottomNavigationBar.setOnNavigationItemSelectedListener { item ->
-            var selectedFragment: Fragment? = null
-            val itemId = item.itemId
-            if (itemId == R.id.menu_sticker) {
-                selectedFragment = fragmentManager.findFragmentByTag(MainStickerFragment.TAG)
-            } else if (itemId == R.id.menu_mine) {
-                selectedFragment = fragmentManager.findFragmentByTag(MineFragment.TAG)
+        bottomNavigationBar.onNavigationItemSelectedListener =  object :BottomNavigationBar.OnNavigationItemSelectedListener{
+            override fun onSelect(type: BottomNavigationItemView.BottomItemType) {
+                var selectedFragment: Fragment? = null
+                when(type){
+                    BottomNavigationItemView.BottomItemType.Sticker ->{
+                        selectedFragment = fragmentManager.findFragmentByTag(MainStickerFragment.TAG)
+                    }
+                    BottomNavigationItemView.BottomItemType.Make ->{
+
+                    }
+                    BottomNavigationItemView.BottomItemType.Mine ->{
+                        selectedFragment = fragmentManager.findFragmentByTag(MineFragment.TAG)
+                    }
+                }
+                if (currentFragment != null && selectedFragment != null) {
+                    fragmentManager.beginTransaction().show(selectedFragment)
+                        .hide(currentFragment!!).commitAllowingStateLoss()
+                    currentFragment = selectedFragment
+                }
+
             }
-            if (currentFragment != null && selectedFragment != null) {
-                fragmentManager.beginTransaction().show(selectedFragment)
-                    .hide(currentFragment!!).commitAllowingStateLoss()
-                currentFragment = selectedFragment
-            }
-        }
-        val actionView: View = bottomNavigationBar.actionView
-        val addButton: ImageView = actionView.findViewById(R.id.button_add)
-        addButton.setOnClickListener {
 
         }
         initializeFragments()
