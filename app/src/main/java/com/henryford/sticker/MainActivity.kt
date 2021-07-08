@@ -6,6 +6,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.navigation.NavigationView
+import com.henryford.sticker.main.MainStickerFragment
 import com.henryford.sticker.mine.MineFragment
 import com.henryford.ui.bottomnavigation.BottomNavigationBar
 import com.henryford.ui.bottomnavigation.BottomNavigationItemView
