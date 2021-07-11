@@ -53,7 +53,7 @@ class MainStickerFragment : BaseFragment() {
         view_pager: ViewPager2,
         magicIndicator: MagicIndicator
     ) {
-        mainStickerViewModel.indicatorDataList.observe(viewLifecycleOwner, Observer {
+        mainStickerViewModel.indicatorDataList.observe(this, Observer {
             LogUtil.d(TAG, "indicatorList:" + it)
             setViewPagerData(it, view_pager)
             setIndicatorData(view_pager, it, magicIndicator)

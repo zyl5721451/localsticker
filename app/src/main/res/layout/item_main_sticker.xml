@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="168dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="168dp"
+        android:src="@drawable/sticker_2"
+        android:layout_height="168dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="27dp">
+
+        <TextView
+            android:id="@+id/tv_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="10dp"
+            android:textColor="@color/blue"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/sticker_download_icon"
+            tools:text="299" />
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_download"
+            android:layout_centerVertical="true"
+            android:textSize="10dp"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/green"
+            android:drawableLeft="@drawable/sticker_share_icon"
+            tools:text="299" />
+
+        <ImageView
+            android:id="@+id/iv_report"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/menu_icon"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
