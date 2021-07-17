@@ -14,17 +14,18 @@ class MainStickerViewModel : ViewModel() {
     var tagList = MutableLiveData<TagBean>()
     var stickerList = MutableLiveData<MainStickerBean>()
 
+
     fun loadIndicatorList(){
         var tempData = ArrayList<MainIndicatorBean>()
-        tempData.add(MainIndicatorBean(0,"From"))
-        tempData.add(MainIndicatorBean(1,"For You"))
-        tempData.add(MainIndicatorBean(2,"HD"))
-        tempData.add(MainIndicatorBean(3,"Quotidiano"))
-        tempData.add(MainIndicatorBean(4,"✨\uD83D\uDE28\uD83C\uDF89"))
-        tempData.add(MainIndicatorBean(5,"For You1"))
-        tempData.add(MainIndicatorBean(6,"For You2"))
-        tempData.add(MainIndicatorBean(7,"For You3"))
-        tempData.add(MainIndicatorBean(8,"For You4"))
+        tempData.add(MainIndicatorBean(0,"From",1))
+        tempData.add(MainIndicatorBean(1,"For You",2))
+        tempData.add(MainIndicatorBean(2,"HD",3))
+        tempData.add(MainIndicatorBean(3,"Quotidiano",3))
+        tempData.add(MainIndicatorBean(4,"✨\uD83D\uDE28\uD83C\uDF89",3))
+        tempData.add(MainIndicatorBean(5,"For You1",3))
+        tempData.add(MainIndicatorBean(6,"For You2",3))
+        tempData.add(MainIndicatorBean(7,"For You3",3))
+        tempData.add(MainIndicatorBean(8,"For You4",3))
         indicatorDataList.value = tempData
     }
 
@@ -43,6 +44,14 @@ class MainStickerViewModel : ViewModel() {
         tempList.add(TagBean.InnerTagBean(9,"#Ate amanha"))
         tempTag.tagList = tempList
         tagList.value = tempTag
+    }
+    fun loadForYouIndicatorList(){
+        var tempData = ArrayList<MainIndicatorBean>()
+        tempData.add(MainIndicatorBean(0,"New",3))
+        tempData.add(MainIndicatorBean(1,"DIY",3))
+        tempData.add(MainIndicatorBean(2,"Daily Top",3))
+        tempData.add(MainIndicatorBean(3,"Trending",3))
+        indicatorDataList.value = tempData
     }
 
     fun loadStickerList(){

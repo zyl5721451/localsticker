@@ -9,7 +9,11 @@
         android:id="@+id/magic_indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable" />
+        app:tabMode="scrollable"
+        app:tabIndicatorFullWidth="false"
+        app:tabRippleColor="@color/transparent"
+        app:tabIndicatorColor="@color/green"
+        app:tabSelectedTextColor="@color/green"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
