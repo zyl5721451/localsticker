@@ -6,13 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
-import com.google.android.flexbox.FlexboxLayout
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.*
 import com.henryford.sticker.R
+import com.henryford.sticker.adapter.BaseAdapter
+import com.henryford.sticker.main.adapter.FlexBoxAdapter
 import com.henryford.sticker.main.bean.TagBean
+import com.henryford.sticker.util.LogUtil
 import com.henryford.ui.util.ScreenUtil
 
 class TagHeaderView :FrameLayout{
-    lateinit var mFlexBoxLayout: FlexboxLayout
+    val TAG = TagHeaderView::class.java.simpleName
+    private lateinit var adapter: FlexBoxAdapter
+    lateinit var mRecyclerView: RecyclerView
 
     constructor(context: Context) : super(context){
         init(context)
@@ -44,23 +50,32 @@ class TagHeaderView :FrameLayout{
     }
 
     fun initView(view:View){
-        mFlexBoxLayout = view.findViewById<FlexboxLayout>(R.id.flexboxlayout)
+        mRecyclerView = view.findViewById<RecyclerView>(R.id.rv_tag)
+        val flexboxLayoutManager = FlexboxLayoutManager(context)
+        flexboxLayoutManager.flexWrap = FlexWrap.WRAP
+        flexboxLayoutManager.flexDirection = FlexDirection.ROW
+        flexboxLayoutManager.justifyContent = JustifyContent.FLEX_START
+        flexboxLayoutManager.alignItems = AlignItems.FLEX_START
 
+        adapter = FlexBoxAdapter()
+
+        mRecyclerView.layoutManager = flexboxLayoutManager
+        mRecyclerView.adapter = adapter
     }
     fun addTagList(tabBean:TagBean?){
         tabBean?.run {
-            tabBean.tagList.forEach {
-                var textView = TextView(context)
-                textView.text = it.name
-                textView.setTextColor(context.resources.getColor(R.color.black))
-                textView.textSize = ScreenUtil.dp2Px(context,14.0f).toFloat()
-                mFlexBoxLayout.addView(textView)
-            }
+            adapter.setData(tabBean.tagList)
         }
+
     }
 
     fun initListener(){
+        adapter.onItemClickListener = object :BaseAdapter.OnItemClickListener{
+            override fun onItemClick(view: View, position: Int) {
+                LogUtil.d(TAG,"onItemClick:"+position)
+            }
 
+        }
     }
 
 

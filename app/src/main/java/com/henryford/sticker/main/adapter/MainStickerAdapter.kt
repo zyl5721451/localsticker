@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.henryford.sticker.BaseFragment
 import com.henryford.sticker.main.StickerListFragment
 import com.henryford.sticker.main.bean.MainIndicatorBean
 import com.henryford.sticker.util.LogUtil
@@ -45,7 +46,13 @@ class MainStickerAdapter :FragmentStateAdapter{
             return fragment
         }
         LogUtil.d(TAG,"createFragment 新建"+position)
-        var fragmentSticker = StickerListFragment.newInstance(mDatas.get(position))
+        var fragmentSticker:BaseFragment
+        if(position == 1){
+            fragmentSticker = StickerListFragment.newInstance(mDatas.get(position))
+        }else{
+            fragmentSticker = StickerListFragment.newInstance(mDatas.get(position))
+        }
+
         fragments.put(key,fragmentSticker)
         return fragmentSticker
     }

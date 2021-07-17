@@ -119,7 +119,6 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:3.0.13"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'com.airbnb.android:lottie:3.7.0'
-    implementation 'com.github.hackware1993:MagicIndicator:1.7.0' // for androidx
 
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

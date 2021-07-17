@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.contains
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.henryford.sticker.BaseFragment
@@ -16,9 +18,11 @@ import com.henryford.sticker.main.adapter.StickerListAdapter
 import com.henryford.sticker.main.bean.MainIndicatorBean
 import com.henryford.sticker.main.bean.TagBean
 import com.henryford.sticker.main.viewmodel.MainStickerViewModel
+import com.henryford.sticker.main.widget.GridSpacingItemDecoration
 import com.henryford.sticker.main.widget.TagHeaderView
 import com.henryford.sticker.util.LogUtil
 import com.henryford.sticker.widget.StickerRecycleView
+import com.henryford.ui.util.ScreenUtil
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -48,12 +52,16 @@ class StickerListFragment : BaseFragment() {
 
 
     override fun initView() {
-        rvRecyclerView = rootView.findViewById(R.id.rv_sticker_list)
-        refreshLayout = rootView.findViewById<SmartRefreshLayout>(R.id.srf_refresh)
+        rvRecyclerView = rootView!!.findViewById(R.id.rv_sticker_list)
+        refreshLayout = rootView!!.findViewById(R.id.srf_refresh)
         refreshLayout.setRefreshHeader(MaterialHeader(context))
         refreshLayout.setRefreshFooter(ClassicsFooter(context))
 
+
         stickerListAdapter = StickerListAdapter()
+        rvRecyclerView?.layoutManager = GridLayoutManager(context,2)
+//        rvRecyclerView?.addItemDecoration(GridSpacingItemDecoration(2,
+//            context?.let { ScreenUtil.dp2Px(it,15.0f) }!!,true))
         rvRecyclerView?.adapter = stickerListAdapter
 
     }
@@ -64,16 +72,36 @@ class StickerListFragment : BaseFragment() {
 
         mainStickerViewModel.tagList.observe(this,
             Observer<TagBean> {
-                LogUtil.d(TAG, "taglist:" + it)
-//                var headerView = TagHeaderView(requireContext())
-//                headerView.addTagList(it)
-//                rvRecyclerView?.addHeaderView(headerView)
-                refreshLayout.finishRefresh()
+                var headerView = TagHeaderView(requireContext())
+                headerView.addTagList(it)
+                rvRecyclerView?.run {
+                    if(this.headerViewCount>0){
+                        this.removeHeaderView(0)
+                    }
+                    this.addHeaderView(headerView)
+                }
             })
 
         mainStickerViewModel.stickerList.observe(this, Observer {
-            stickerListAdapter.setData(it.mainStickerList)
-            refreshLayout.finishRefresh()
+            it.pageInfo?.run {
+
+                if(this.score!=0.0){
+                    stickerListAdapter.addData(it.mainStickerList)
+                    if(!this.hasMore){
+                        refreshLayout.finishLoadMoreWithNoMoreData()
+                    }else {
+                        refreshLayout.finishLoadMore()
+                    }
+                }else {
+                    stickerListAdapter.setData(it.mainStickerList)
+                    refreshLayout.finishRefresh()
+                    if(!this.hasMore){
+                        refreshLayout.setEnableLoadMore(false)
+                    }else {
+                        refreshLayout.setEnableLoadMore(true)
+                    }
+                }
+            }
         })
         LogUtil.d(TAG,"initData"+mainIndicatorBean?.name)
     }
@@ -84,7 +112,7 @@ class StickerListFragment : BaseFragment() {
             mainStickerViewModel.loadStickerList()
         }
         refreshLayout.setOnLoadMoreListener {
-
+            mainStickerViewModel.loadStickerList()
         }
 
     }
@@ -111,6 +139,12 @@ class StickerListFragment : BaseFragment() {
     override fun onResume() {
         LogUtil.d(TAG,"onResume"+mainIndicatorBean?.name)
         super.onResume()
+    }
+
+
+
+    override fun firstLoadData() {
+        refreshLayout.autoRefresh()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
