@@ -1,3 +1,4 @@
+include ':commlib'
 include ':uilib'
 include ':nativetemplates'
 include ':app'

@@ -130,8 +130,11 @@ dependencies {
     implementation  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
     implementation 'com.takwolf.android:hf-recyclerview:0.4.0'
 
+
+
     implementation project(":nativetemplates")
     implementation project(":uilib")
+    implementation project(':commlib')
 
 
 }

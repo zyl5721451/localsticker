@@ -12,6 +12,7 @@ import com.henryford.sticker.main.adapter.MainStickerAdapter
 import com.henryford.sticker.main.bean.MainIndicatorBean
 import com.henryford.sticker.main.viewmodel.MainStickerViewModel
 import com.henryford.sticker.util.LogUtil
+import kotlinx.android.synthetic.main.view_tab_textview.view.*
 
 
 class MainStickerFragment : BaseFragment() {

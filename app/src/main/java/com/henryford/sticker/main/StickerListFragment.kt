@@ -104,6 +104,7 @@ class StickerListFragment : BaseFragment() {
             }
         })
         LogUtil.d(TAG,"initData"+mainIndicatorBean?.name)
+        refreshLayout.autoRefresh()
     }
 
     override fun setListener() {
@@ -144,7 +145,7 @@ class StickerListFragment : BaseFragment() {
 
 
     override fun firstLoadData() {
-        refreshLayout.autoRefresh()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
