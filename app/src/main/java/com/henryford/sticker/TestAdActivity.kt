@@ -21,15 +21,20 @@ class TestAdActivity : BaseActivity(),View.OnClickListener {
     lateinit var btnRewardedInterstitialAd: Button
     lateinit var btnNativeAd: Button
     lateinit var flBannerAd:FrameLayout
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test_ad)
-        initView()
-        initListener()
+
+    override fun setListener() {
+        btnBannerAd.setOnClickListener(this)
+        btnInterstitialAd.setOnClickListener(this)
+        btnRewardedAd.setOnClickListener(this)
+        btnRewardedInterstitialAd.setOnClickListener(this)
+        btnNativeAd.setOnClickListener(this)
+    }
+
+    override fun initData() {
     }
 
 
-    private fun initView() {
+    override fun initView() {
         btnBannerAd = btn_banner_ad
         btnInterstitialAd = btn_interstitial_ad
         btnRewardedAd = btn_rewarded_ad
@@ -38,13 +43,10 @@ class TestAdActivity : BaseActivity(),View.OnClickListener {
         flBannerAd = fl_banner_ad
     }
 
-    private fun initListener() {
-        btnBannerAd.setOnClickListener(this)
-        btnInterstitialAd.setOnClickListener(this)
-        btnRewardedAd.setOnClickListener(this)
-        btnRewardedInterstitialAd.setOnClickListener(this)
-        btnNativeAd.setOnClickListener(this)
+    override fun getLayoutResId(): Int {
+        return R.layout.activity_test_ad
     }
+
 
     override fun onClick(v: View?) {
         when(v?.id){

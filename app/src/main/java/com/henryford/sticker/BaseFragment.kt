@@ -1,10 +1,14 @@
 package com.henryford.sticker
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
+import com.alibaba.android.arouter.launcher.ARouter
+import com.henryford.sticker.util.LogUtil
 
 abstract class BaseFragment: Fragment() {
     var rootView:ViewGroup? = null
@@ -21,6 +25,11 @@ abstract class BaseFragment: Fragment() {
             setListener()
         }
         return rootView
+    }
+
+
+    override fun onStop() {
+        super.onStop()
     }
 
     override fun onResume() {
@@ -40,4 +49,17 @@ abstract class BaseFragment: Fragment() {
     protected abstract fun initData()
 
     protected abstract fun setListener()
+
+
+    fun Fragment.toActivity(url:String, bundle: Bundle? = null){
+        ARouter.getInstance().build(url)
+            .with(bundle)
+            .navigation(activity)
+    }
+    fun Fragment.toActivity(url:String, bundle: Bundle? = null, call: NavigationCallback){
+        ARouter.getInstance().build(url)
+            .with(bundle)
+            .navigation(activity,call)
+    }
+
 }

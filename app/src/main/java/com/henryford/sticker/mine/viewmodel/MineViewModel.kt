@@ -53,7 +53,7 @@ class MineViewModel : ViewModel() {
         pageInfo.totalCount = 50
 
         var list = ArrayList<MineStickerBean.InnerMineStickerBean>()
-        var innerStickerBean = MineStickerBean.InnerMineStickerBean(122,"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202106%2F24%2F20210624115425_9a473.thumb.1000_0.gif&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629461197&t=1925082e495a14e19dc7760c30468502")
+        var innerStickerBean = MineStickerBean.InnerMineStickerBean(122,"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190917%2F19%2F1568718279-zvHmOqtXub.jpg&refer=http%3A%2F%2Fimage.biaobaiju.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629797374&t=675051d802fbe4c3cdd26f29de91c0f0")
         list.add(innerStickerBean)
         innerStickerBean = MineStickerBean.InnerMineStickerBean(122,"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201601%2F03%2F20160103122852_4VnvW.jpeg&refer=http%3A%2F%2Fcdn.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629461263&t=a695a163f65330b1412b33bfe386d25f")
         list.add(innerStickerBean)

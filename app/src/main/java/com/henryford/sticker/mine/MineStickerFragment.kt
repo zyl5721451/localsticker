@@ -1,13 +1,14 @@
 package com.henryford.sticker.mine
 
-import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.henryford.sticker.BaseFragment
 import com.henryford.sticker.R
-import com.henryford.sticker.mine.adapter.MinePackAdapter
+import com.henryford.sticker.adapter.BaseAdapter
 import com.henryford.sticker.mine.adapter.MineStickerAdapter
 import com.henryford.sticker.mine.viewmodel.MineViewModel
 import com.henryford.sticker.widget.StickerRecycleView
@@ -43,7 +44,7 @@ class MineStickerFragment : BaseFragment() {
 
 
         mineStickerAdapter = MineStickerAdapter()
-        rvRecyclerView?.layoutManager = GridLayoutManager(context,3)
+        rvRecyclerView?.layoutManager = GridLayoutManager(context, 3)
         rvRecyclerView?.adapter = mineStickerAdapter
     }
 
@@ -56,19 +57,19 @@ class MineStickerFragment : BaseFragment() {
         mineViewModel.stickerList.observe(this, Observer {
             it.pageInfo?.run {
 
-                if(this.score!=0.0){
+                if (this.score != 0.0) {
                     mineStickerAdapter.addData(it.mineStickerkList)
-                    if(!this.hasMore){
+                    if (!this.hasMore) {
                         refreshLayout.finishLoadMoreWithNoMoreData()
-                    }else {
+                    } else {
                         refreshLayout.finishLoadMore()
                     }
-                }else {
+                } else {
                     mineStickerAdapter.setData(it.mineStickerkList)
                     refreshLayout.finishRefresh()
-                    if(!this.hasMore){
+                    if (!this.hasMore) {
                         refreshLayout.setEnableLoadMore(false)
-                    }else {
+                    } else {
                         refreshLayout.setEnableLoadMore(true)
                     }
                 }
@@ -79,6 +80,24 @@ class MineStickerFragment : BaseFragment() {
             mineViewModel.getStickerList()
         }
         refreshLayout.setOnLoadMoreListener {
+
+        }
+        mineStickerAdapter.onItemClickListener = object :BaseAdapter.OnItemClickListener{
+            override fun onItemClick(view: View, position: Int) {
+//                ARouter.getInstance().build(ARouterPage.STICKER_DETAIL_ACTIVITY)
+//                    .withObject(StickerDetailActivity.KEY_DATA,mineStickerAdapter.mDatas)
+//                    .navigation(context)
+
+                val ft= childFragmentManager.beginTransaction()
+                val prev: Fragment? = childFragmentManager.findFragmentByTag(StickerDetailFragment.FRAGMENT_TAG)
+                if (prev != null) {
+                    ft.remove(prev)
+                }
+                ft.addToBackStack(null)
+                val newFragment: StickerDetailFragment? = StickerDetailFragment.newInstance(mineStickerAdapter.mDatas)
+                newFragment?.show(ft, StickerDetailFragment.FRAGMENT_TAG)
+
+            }
 
         }
     }

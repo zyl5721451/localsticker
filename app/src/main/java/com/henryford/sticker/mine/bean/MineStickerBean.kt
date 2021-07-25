@@ -1,12 +1,13 @@
 package com.henryford.sticker.mine.bean
 
 import com.henryford.sticker.bean.PageInfoBean
+import java.io.Serializable
 
-class MineStickerBean {
+class MineStickerBean :Serializable{
    var mineStickerkList = ArrayList<InnerMineStickerBean>()
    var pageInfo:PageInfoBean? = null
 
-    class InnerMineStickerBean{
+    class InnerMineStickerBean:Serializable{
         var id:Long = 0L
         var icon:String = ""
 

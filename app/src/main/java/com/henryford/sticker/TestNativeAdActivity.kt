@@ -11,12 +11,20 @@ import kotlinx.android.synthetic.main.activity_test_native_ad.*
 
 
 class TestNativeAdActivity : BaseActivity() {
-    var nativeAdWrapper : NativeAdWrapper? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test_native_ad)
+    var nativeAdWrapper: NativeAdWrapper? = null
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        nativeAdWrapper?.destroy()
+    }
+
+    override fun setListener() {
+    }
+
+    override fun initData() {
         nativeAdWrapper = NativeAdWrapper()
-//        nativeAdWrapper!!.loadNativedAd(this,object :NativeAdWrapper.OnNativeAdLoadListener{
+        //        nativeAdWrapper!!.loadNativedAd(this,object :NativeAdWrapper.OnNativeAdLoadListener{
 //            override fun onNativeAdLoaded(nativeAds: ArrayList<NativeAd>) {
 //                if(nativeAds.size>=2){
 //                    val styles1 = NativeTemplateStyle.Builder().withMainBackgroundColor(ColorDrawable(Color.WHITE)).build()
@@ -33,20 +41,27 @@ class TestNativeAdActivity : BaseActivity() {
 //            }
 //
 //        })
-        nativeAdWrapper!!.loadUnifiedNativeAd(this,fl_unified_ad,NativeAdWrapper.NATIVEAD_VIEW_HOME_SPLASH,object :NativeAdWrapper.OnNativeAdLoadListener{
-            override fun onNativeAdLoaded(nativeAds: ArrayList<NativeAd>) {
+        nativeAdWrapper!!.loadUnifiedNativeAd(
+            this,
+            fl_unified_ad,
+            NativeAdWrapper.NATIVEAD_VIEW_HOME_SPLASH,
+            object : NativeAdWrapper.OnNativeAdLoadListener {
+                override fun onNativeAdLoaded(nativeAds: ArrayList<NativeAd>) {
 
-            }
+                }
 
-            override fun onLoadComplete() {
+                override fun onLoadComplete() {
 
-            }
+                }
 
-        })
+            })
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        nativeAdWrapper?.destroy()
+    override fun initView() {
+
+    }
+
+    override fun getLayoutResId(): Int {
+        return R.layout.activity_test_native_ad
     }
 }

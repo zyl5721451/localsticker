@@ -1,12 +1,24 @@
 package com.henryford.sticker.make
 
-import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.allen.commlib.arouter.ARouterPage
 import com.henryford.sticker.BaseActivity
 import com.henryford.sticker.R
 
+@Route(path = ARouterPage.MAKE_ACTIVITY)
 class MakeStickerActivity : BaseActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_make)
+
+
+    override fun setListener() {
+    }
+
+    override fun initData() {
+    }
+
+    override fun initView() {
+    }
+
+    override fun getLayoutResId(): Int {
+        return R.layout.activity_make
     }
 }

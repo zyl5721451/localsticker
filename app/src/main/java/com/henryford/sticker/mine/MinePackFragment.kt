@@ -1,12 +1,16 @@
 package com.henryford.sticker.mine
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alibaba.android.arouter.launcher.ARouter
+import com.allen.commlib.arouter.ARouterPage
 import com.henryford.sticker.BaseFragment
 import com.henryford.sticker.R
+import com.henryford.sticker.adapter.BaseAdapter
 import com.henryford.sticker.main.StickerListFragment
 import com.henryford.sticker.main.adapter.StickerListAdapter
 import com.henryford.sticker.main.bean.MainIndicatorBean
@@ -55,6 +59,15 @@ class MinePackFragment : BaseFragment() {
     }
 
     override fun setListener() {
+        minePackAdapter.onItemClickListener = object :BaseAdapter.OnItemClickListener{
+            override fun onItemClick(view: View, position: Int) {
+                ARouter.getInstance()
+                    .build(ARouterPage.PACK_DETAIL_ACTIVITY)
+                    .withObject(PackDetailActivity.KEY_PACK,minePackAdapter.mDatas[position])
+                    .navigation(context)
+            }
+
+        }
         mineViewModel.packList.observe(this, Observer {
             it.pageInfo?.run {
 

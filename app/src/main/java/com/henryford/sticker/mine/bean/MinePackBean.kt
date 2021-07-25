@@ -1,10 +1,12 @@
 package com.henryford.sticker.mine.bean
 
 import com.henryford.sticker.bean.PageInfoBean
+import java.io.Serializable
 
-class MinePackBean {
+class MinePackBean{
    var minePackList = ArrayList<InnerMinePackBean>()
    var pageInfo:PageInfoBean? = null
+
 
     class InnerMinePackBean{
         var id:Long = 0L
@@ -33,5 +35,9 @@ class MinePackBean {
             this.previewIcon = previewIcon
             this.iconList = iconList
         }
+
+
+
+
     }
 }

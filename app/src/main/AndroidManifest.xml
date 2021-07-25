@@ -77,6 +77,13 @@
         <activity
             android:name=".MainActivity"
             />
+        <activity
+            android:name=".mine.PackDetailActivity"
+            />
+
+        <activity
+            android:name=".mine.StickerDetailActivity"
+            />
     </application>
 
 </manifest>
