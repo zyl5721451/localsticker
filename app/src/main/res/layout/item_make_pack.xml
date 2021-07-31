@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:gravity="center">
+
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        tools:src="@drawable/sticker_2" />
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_gravity="center"
+        android:id="@+id/fl_mask"
+        android:background="@drawable/bg_make_pack_selected"
+        android:layout_height="80dp">
+        <ImageView
+
+            android:layout_width="10dp"
+            android:src="@drawable/sticker_select_flag"
+            android:layout_gravity="bottom|right"
+            android:layout_height="10dp"/>
+
+    </FrameLayout>
+
+
+</FrameLayout>
