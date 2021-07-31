@@ -21,6 +21,8 @@ class TestAdActivity : BaseActivity(),View.OnClickListener {
     lateinit var btnRewardedInterstitialAd: Button
     lateinit var btnNativeAd: Button
     lateinit var flBannerAd:FrameLayout
+    override fun initToolbar() {
+    }
 
     override fun setListener() {
         btnBannerAd.setOnClickListener(this)

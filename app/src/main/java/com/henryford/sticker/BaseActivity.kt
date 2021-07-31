@@ -20,8 +20,11 @@ abstract class BaseActivity : AppCompatActivity() {
         ARouter.getInstance().inject(this)
         initView()
         initData()
+        initToolbar()
         setListener()
     }
+
+    abstract fun initToolbar()
 
     protected abstract fun setListener()
 
@@ -76,5 +79,6 @@ abstract class BaseActivity : AppCompatActivity() {
             .with(bundle)
             .navigation(this@BaseActivity,call)
     }
+
 
 }

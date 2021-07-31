@@ -19,6 +19,9 @@ class TestNativeAdActivity : BaseActivity() {
         nativeAdWrapper?.destroy()
     }
 
+    override fun initToolbar() {
+    }
+
     override fun setListener() {
     }
 

@@ -84,6 +84,15 @@
         <activity
             android:name=".mine.StickerDetailActivity"
             />
+        <activity
+            android:name=".report.ReportActivity"
+            />
+        <activity
+            android:name=".main.TagDetailActivity"
+            />
+        <activity
+            android:name=".main.StickerDownloadActivity"
+            />
     </application>
 
 </manifest>

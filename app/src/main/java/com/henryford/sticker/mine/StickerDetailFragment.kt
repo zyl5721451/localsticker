@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.launcher.ARouter
 import com.allen.commlib.arouter.ARouterPage
+import com.henryford.sticker.BaseDialogFragment
 import com.henryford.sticker.R
 import com.henryford.sticker.adapter.BaseAdapter
 import com.henryford.sticker.mine.adapter.MineStickerDetailBigAdapter
@@ -22,7 +23,7 @@ import com.henryford.sticker.mine.bean.MineStickerBean
 import com.henryford.ui.util.ScreenUtil
 
 
-class StickerDetailFragment : DialogFragment() {
+class StickerDetailFragment : BaseDialogFragment() {
     lateinit var tvClose:TextView
     lateinit var viewaPagerBig:ViewPager2
     lateinit var flAd:FrameLayout
@@ -48,30 +49,37 @@ class StickerDetailFragment : DialogFragment() {
     var stickerList:ArrayList<MineStickerBean.InnerMineStickerBean>? = null
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        stickerList = arguments?.getSerializable(KEY_DATA) as ArrayList<MineStickerBean.InnerMineStickerBean>?
-        setStyle(STYLE_NO_TITLE, R.style.AppTheme_StickerDetail) //dialog全屏
 
+
+
+
+    override fun firstLoadData() {
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        var view = inflater.inflate(R.layout.activity_sticker_detail, container, false) as ViewGroup
-        initView(view)
-        initData()
-        setListener()
-        return view
+    override fun getRootViewResource(): Int {
+        return R.layout.activity_sticker_detail
+    }
+
+    override fun initView() {
+        tvClose = rootView!!.findViewById(R.id.tv_close)
+        viewaPagerBig = rootView!!.findViewById(R.id.view_pager_h)
+        recyclerView = rootView!!.findViewById(R.id.recyclerview)
+        btnMake = rootView!!.findViewById(R.id.btn_make)
+        flAd = rootView!!.findViewById(R.id.fl_ad)
+
+        viewaPagerBig.layoutParams.height = ScreenUtil.getScreenWidth(requireContext())
+
+        (recyclerView.itemAnimator as SimpleItemAnimator?)?.run {
+            supportsChangeAnimations = false
+            addDuration = 0
+            changeDuration = 0
+            moveDuration = 0
+            removeDuration = 0
+        }
     }
 
 
-
-
-
-    private fun setListener() {
+    override fun setListener() {
         tvClose.setOnClickListener {
             dismiss()
         }
@@ -107,7 +115,13 @@ class StickerDetailFragment : DialogFragment() {
         }
     }
 
-    private fun initData() {
+    override fun getDialogTheme(): Int {
+        return R.style.AppTheme_StickerDetail
+    }
+
+    override fun initData() {
+        stickerList = arguments?.getSerializable(KEY_DATA) as ArrayList<MineStickerBean.InnerMineStickerBean>?
+
         bigViewPagerAdapter = MineStickerDetailBigAdapter()
         bigViewPagerAdapter.addData(stickerList)
         viewaPagerBig.setAdapter(bigViewPagerAdapter)
@@ -124,23 +138,7 @@ class StickerDetailFragment : DialogFragment() {
 
     }
 
-    private fun initView(view: ViewGroup) {
-        tvClose = view.findViewById(R.id.tv_close)
-        viewaPagerBig = view.findViewById(R.id.view_pager_h)
-        recyclerView = view.findViewById(R.id.recyclerview)
-        btnMake = view.findViewById(R.id.btn_make)
-        flAd = view.findViewById(R.id.fl_ad)
 
-        viewaPagerBig.layoutParams.height = ScreenUtil.getScreenWidth(requireContext())
-
-        (recyclerView.itemAnimator as SimpleItemAnimator?)?.run {
-            supportsChangeAnimations = false
-            addDuration = 0
-            changeDuration = 0
-            moveDuration = 0
-            removeDuration = 0
-        }
-    }
 
     override fun onDestroy() {
         super.onDestroy()

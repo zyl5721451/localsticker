@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.allen.commlib.arouter.ARouterPage
 import com.henryford.sticker.BaseActivity
 import com.henryford.sticker.R
@@ -32,24 +33,24 @@ class PackDetailActivity : BaseActivity() {
     @Autowired(name = KEY_PACK)
     @JvmField
     var packBean: MinePackBean.InnerMinePackBean? = null
-
-    override fun setListener() {
-
-    }
-
-    override fun initData() {
-        initToolBar()
-        header.updateUI(packBean)
-        minePackDetailAdapter.addData(packBean?.iconList)
-    }
-
-    private fun initToolBar() {
+    override fun initToolbar() {
         toolbar.title = packBean?.name
         toolbar.navigationIcon = resources.getDrawable(R.drawable.thin_back)
         toolbar.setNavigationOnClickListener {
             finish()
         }
     }
+
+    override fun setListener() {
+
+    }
+
+    override fun initData() {
+        header.updateUI(packBean)
+        minePackDetailAdapter.addData(packBean?.iconList)
+    }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_pack_detail,menu)
@@ -59,7 +60,7 @@ class PackDetailActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_pack_delete->{
-
+                ARouter.getInstance().build(ARouterPage.REPORT_ACTIVITY).navigation(this)
             }
             R.id.menu_pack_edite->{
 

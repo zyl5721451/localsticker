@@ -12,8 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.alibaba.android.arouter.launcher.ARouter
+import com.allen.commlib.arouter.ARouterPage
 import com.henryford.sticker.BaseFragment
 import com.henryford.sticker.R
+import com.henryford.sticker.adapter.BaseAdapter
 import com.henryford.sticker.main.adapter.StickerListAdapter
 import com.henryford.sticker.main.bean.MainIndicatorBean
 import com.henryford.sticker.main.bean.TagBean
@@ -73,7 +76,7 @@ class StickerListFragment : BaseFragment() {
         mainStickerViewModel.tagList.observe(this,
             Observer<TagBean> {
                 var headerView = TagHeaderView(requireContext())
-                headerView.addTagList(it)
+                headerView.addTagList(it!!.tagList)
                 rvRecyclerView?.run {
                     if(this.headerViewCount>0){
                         this.removeHeaderView(0)
@@ -116,6 +119,12 @@ class StickerListFragment : BaseFragment() {
             mainStickerViewModel.loadStickerList()
         }
 
+        stickerListAdapter.onItemClickListener = object :BaseAdapter.OnItemClickListener{
+            override fun onItemClick(view: View, position: Int) {
+                ARouter.getInstance().build(ARouterPage.STICKER_DOWNLOAD_ACTIVITY).navigation(context)
+            }
+
+        }
     }
 
     override fun onCreateView(

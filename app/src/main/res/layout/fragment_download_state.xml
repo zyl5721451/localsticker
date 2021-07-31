@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_downloading"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical"
+                android:visibility="visible"
+                tools:visibility="visible">
+
+                <ProgressBar
+                    android:id="@+id/pb"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/green" />
+
+                <TextView
+                    android:id="@+id/tv_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/pb"
+                    android:text="Please wait while downloading sticker"
+                    android:textColor="@color/Blk_3"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_downloaded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawableLeft="@drawable/download_succ"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Download Sucess"
+                        android:textColor="@color/Blk_3"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/iv_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/activity_close_dark" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_sticker_make"
+                    android:text="Tab to make pack"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/tv_uninstall_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_uninstall_tips"
+                    android:gravity="center"
+                    android:text="Uninstalling the app will make the sticker unavailable"
+                    android:textColor="@color/uninstall_tips"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_ad"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/green" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.henryford.sticker.bean.PageInfoBean
 import com.henryford.sticker.main.bean.MainIndicatorBean
 import com.henryford.sticker.main.bean.MainStickerBean
+import com.henryford.sticker.main.bean.StickerDetailBean
 import com.henryford.sticker.main.bean.TagBean
 
 class MainStickerViewModel : ViewModel() {
@@ -13,7 +14,7 @@ class MainStickerViewModel : ViewModel() {
 
     var tagList = MutableLiveData<TagBean>()
     var stickerList = MutableLiveData<MainStickerBean>()
-
+    var stickerDetail = MutableLiveData<StickerDetailBean>()
 
     fun loadIndicatorList(){
         var tempData = ArrayList<MainIndicatorBean>()
@@ -45,6 +46,27 @@ class MainStickerViewModel : ViewModel() {
         tempTag.tagList = tempList
         tagList.value = tempTag
     }
+
+    fun loadStickerDetail(){
+        var stickerDetailBean = StickerDetailBean()
+        var tags = ArrayList<TagBean.InnerTagBean>()
+        tags.add(TagBean.InnerTagBean(0,"#bom descanso"))
+        tags.add(TagBean.InnerTagBean(1,"#Tchau"))
+        tags.add(TagBean.InnerTagBean(2,"#Obrigado!"))
+        tags.add(TagBean.InnerTagBean(3,"#bom descanso"))
+        tags.add(TagBean.InnerTagBean(4,"#adeus"))
+        tags.add(TagBean.InnerTagBean(5,"#forca"))
+        tags.add(TagBean.InnerTagBean(6,"#De nada!"))
+        tags.add(TagBean.InnerTagBean(7,"#bom trabalho"))
+        tags.add(TagBean.InnerTagBean(8,"#serio"))
+        tags.add(TagBean.InnerTagBean(9,"#Ate amanha"))
+        var innerStickerDetail = StickerDetailBean.InnerStickerDetailBean("333",334,33,"https://inews.gtimg.com/newsapp_bt/0/11628844064/1000","https://inews.gtimg.com/newsapp_bt/0/11628844064/1000",tags)
+
+        stickerDetailBean.sticker = innerStickerDetail
+        stickerDetail.value = stickerDetailBean
+    }
+
+
     fun loadForYouIndicatorList(){
         var tempData = ArrayList<MainIndicatorBean>()
         tempData.add(MainIndicatorBean(0,"New",3))

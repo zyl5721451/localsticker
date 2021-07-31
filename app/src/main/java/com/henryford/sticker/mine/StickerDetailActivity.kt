@@ -22,6 +22,9 @@ class StickerDetailActivity : BaseActivity() {
     @Autowired(name = KEY_DATA)
     @JvmField
     var stickerList: List<MineStickerBean.InnerMineStickerBean>? = null
+    override fun initToolbar() {
+    }
+
     override fun setListener() {
         btnMake.setOnClickListener {
         }

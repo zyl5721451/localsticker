@@ -7,9 +7,12 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.alibaba.android.arouter.launcher.ARouter
+import com.allen.commlib.arouter.ARouterPage
 import com.google.android.flexbox.*
 import com.henryford.sticker.R
 import com.henryford.sticker.adapter.BaseAdapter
+import com.henryford.sticker.main.TagDetailActivity
 import com.henryford.sticker.main.adapter.FlexBoxAdapter
 import com.henryford.sticker.main.bean.TagBean
 import com.henryford.sticker.util.LogUtil
@@ -62,9 +65,9 @@ class TagHeaderView :FrameLayout{
         mRecyclerView.layoutManager = flexboxLayoutManager
         mRecyclerView.adapter = adapter
     }
-    fun addTagList(tabBean:TagBean?){
-        tabBean?.run {
-            adapter.setData(tabBean.tagList)
+    fun addTagList(tabBeans:ArrayList<TagBean.InnerTagBean>?){
+        tabBeans?.run {
+            adapter.setData(tabBeans)
         }
 
     }
@@ -73,6 +76,9 @@ class TagHeaderView :FrameLayout{
         adapter.onItemClickListener = object :BaseAdapter.OnItemClickListener{
             override fun onItemClick(view: View, position: Int) {
                 LogUtil.d(TAG,"onItemClick:"+position)
+                ARouter.getInstance().build(ARouterPage.TAG_DETAIL_ACTIVITY)
+                    .withObject(TagDetailActivity.KEY_DATA,adapter.mDatas.get(position))
+                    .navigation(context)
             }
 
         }

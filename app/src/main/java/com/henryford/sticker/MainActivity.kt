@@ -18,6 +18,8 @@ class MainActivity : BaseActivity() {
     private lateinit var leftNavagation: NavigationView
     private lateinit var bottomNavigationBar: BottomNavigationBar
     private var currentFragment: Fragment? = null
+    override fun initToolbar() {
+    }
 
     override fun setListener() {
         leftNavagation.setNavigationItemSelectedListener {

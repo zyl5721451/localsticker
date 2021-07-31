@@ -7,6 +7,8 @@ import com.henryford.sticker.R
 
 @Route(path = ARouterPage.MAKE_ACTIVITY)
 class MakeStickerActivity : BaseActivity() {
+    override fun initToolbar() {
+    }
 
 
     override fun setListener() {
