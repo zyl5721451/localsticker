@@ -16,7 +16,7 @@ import com.henryford.sticker.mine.bean.MinePackBean
 import com.henryford.sticker.mine.bean.MineStickerBean
 import com.henryford.sticker.util.LogUtil
 
-class MineStickerDetailBigAdapter :BaseAdapter<MineStickerBean.InnerMineStickerBean,MineStickerDetailBigAdapter.ViewHolder>{
+class MineStickerDetailBigAdapter :BaseAdapter<MineStickerBean,MineStickerDetailBigAdapter.ViewHolder>{
     val TAG = MineStickerDetailBigAdapter::class.java.simpleName
     constructor() : super()
 

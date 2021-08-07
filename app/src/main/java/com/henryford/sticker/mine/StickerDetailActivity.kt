@@ -21,7 +21,7 @@ class StickerDetailActivity : BaseActivity() {
 
     @Autowired(name = KEY_DATA)
     @JvmField
-    var stickerList: List<MineStickerBean.InnerMineStickerBean>? = null
+    var stickerList: List<MineStickerBean>? = null
     override fun initToolbar() {
     }
 

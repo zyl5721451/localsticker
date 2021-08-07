@@ -18,12 +18,12 @@ class Converters {
     }
 
     @TypeConverter
-    fun stringToMineSticker(sticker: String?): MineStickerBean.InnerMineStickerBean? {
-        return GsonUtil.parseObject(sticker, MineStickerBean.InnerMineStickerBean::class.java)
+    fun stringToMineSticker(sticker: String?): MineStickerBean? {
+        return GsonUtil.parseObject(sticker, MineStickerBean::class.java)
     }
 
     @TypeConverter
-    fun mineStickerToString(sticker: MineStickerBean.InnerMineStickerBean?): String? {
+    fun mineStickerToString(sticker: MineStickerBean?): String? {
         return GsonUtil.getJsonString(sticker)
     }
 

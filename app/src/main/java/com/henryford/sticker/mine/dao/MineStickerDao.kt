@@ -6,20 +6,17 @@ import com.henryford.sticker.mine.bean.MineStickerBean
 @Dao
 abstract class MineStickerDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun insert(sticker: MineStickerBean.InnerMineStickerBean)
+    abstract fun insert(sticker: MineStickerBean)
     @Insert
-    abstract fun insert(stickers:List<MineStickerBean.InnerMineStickerBean>)
+    abstract fun insert(stickers:List<MineStickerBean>)
     @Delete
-    abstract fun delete(sticker:MineStickerBean.InnerMineStickerBean)
+    abstract fun delete(sticker:MineStickerBean)
 
     @Update
-    abstract fun update(sticker:MineStickerBean.InnerMineStickerBean)
-
-    @Query("select * from mine_sticker where id =:id")
-    abstract fun queryById(id:Int) : MineStickerBean.InnerMineStickerBean
+    abstract fun update(sticker:MineStickerBean)
 
     @Query("select * from mine_sticker")
-    abstract fun queryAll():List<MineStickerBean.InnerMineStickerBean>
+    abstract fun queryAll():List<MineStickerBean>
 
     @Query("select count(*) from mine_sticker")
     abstract fun stickerCount() : Int

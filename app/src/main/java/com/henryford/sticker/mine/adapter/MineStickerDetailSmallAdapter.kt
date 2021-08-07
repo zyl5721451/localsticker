@@ -12,7 +12,7 @@ import com.henryford.sticker.adapter.BaseAdapter
 import com.henryford.sticker.mine.bean.MineStickerBean
 import com.henryford.sticker.util.LogUtil
 
-class MineStickerDetailSmallAdapter :BaseAdapter<MineStickerBean.InnerMineStickerBean, MineStickerDetailSmallAdapter.ViewHolder>{
+class MineStickerDetailSmallAdapter :BaseAdapter<MineStickerBean, MineStickerDetailSmallAdapter.ViewHolder>{
     val TAG = MineStickerDetailSmallAdapter::class.java.simpleName
 
     var selectedPosition = -1024

@@ -55,24 +55,10 @@ class MineStickerFragment : BaseFragment() {
 
     override fun setListener() {
         mineViewModel.stickerList.observe(this, Observer {
-            it.pageInfo?.run {
-
-                if (this.score != 0.0) {
-                    mineStickerAdapter.addData(it.mineStickerkList)
-                    if (!this.hasMore) {
-                        refreshLayout.finishLoadMoreWithNoMoreData()
-                    } else {
-                        refreshLayout.finishLoadMore()
-                    }
-                } else {
-                    mineStickerAdapter.setData(it.mineStickerkList)
-                    refreshLayout.finishRefresh()
-                    if (!this.hasMore) {
-                        refreshLayout.setEnableLoadMore(false)
-                    } else {
-                        refreshLayout.setEnableLoadMore(true)
-                    }
-                }
+            if(it.isNotEmpty()){
+                mineStickerAdapter.setData(it)
+                refreshLayout.finishRefresh()
+                refreshLayout.setEnableLoadMore(false)
             }
         })
 

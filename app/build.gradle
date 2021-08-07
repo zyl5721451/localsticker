@@ -152,5 +152,6 @@ dependencies {
     implementation project(":uilib")
     implementation project(':commlib')
 
-
+    def room_version = "2.2.5"
+    kapt "androidx.room:room-compiler:$room_version"
 }

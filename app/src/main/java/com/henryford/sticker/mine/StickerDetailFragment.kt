@@ -36,7 +36,7 @@ class StickerDetailFragment : BaseDialogFragment() {
     companion object{
         val FRAGMENT_TAG = "sticker_detail"
         val KEY_DATA = "key_data"
-        fun newInstance(stickerList: ArrayList<MineStickerBean.InnerMineStickerBean>): StickerDetailFragment? {
+        fun newInstance(stickerList: ArrayList<MineStickerBean>): StickerDetailFragment? {
             val f = StickerDetailFragment()
             // Supply num input as an argument.
             val args = Bundle()
@@ -46,7 +46,7 @@ class StickerDetailFragment : BaseDialogFragment() {
         }
     }
 
-    var stickerList:ArrayList<MineStickerBean.InnerMineStickerBean>? = null
+    var stickerList:ArrayList<MineStickerBean>? = null
 
 
 
@@ -120,7 +120,7 @@ class StickerDetailFragment : BaseDialogFragment() {
     }
 
     override fun initData() {
-        stickerList = arguments?.getSerializable(KEY_DATA) as ArrayList<MineStickerBean.InnerMineStickerBean>?
+        stickerList = arguments?.getSerializable(KEY_DATA) as ArrayList<MineStickerBean>?
 
         bigViewPagerAdapter = MineStickerDetailBigAdapter()
         bigViewPagerAdapter.addData(stickerList)

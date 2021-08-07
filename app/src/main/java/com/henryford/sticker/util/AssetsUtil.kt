@@ -1,6 +1,8 @@
 package com.henryford.sticker.util
 
 import android.content.Context
+import com.henryford.sticker.dao.AppDataBase
+import com.henryford.sticker.mine.bean.MineStickerBean
 import java.io.*
 
 object AssetsUtil {
@@ -23,7 +25,9 @@ object AssetsUtil {
                     File(outFileName).mkdir()
                     doCopy(context,inFileName, outFileName)
                 }
+                AppDataBase.getInstance(context).mineStickerDao().insert(MineStickerBean(outFileName))
             }
+
         }
 
     }
